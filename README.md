@@ -3,7 +3,7 @@
 Team:
 
 * Person 1 - Isaac - Service Microservice
-* Person 2 - Which microservice?
+* Person 2 - Ian LI - Sales
 
 ## Design
 
