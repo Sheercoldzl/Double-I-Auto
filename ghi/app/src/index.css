@@ -5,9 +5,127 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("https://thumbs.dreamstime.com/b/car-sale-benz-dealership-showroom-64985773.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.navbar {
+  background-color: black;;
+}
+.navbar-brand {
+  color: black;
+}
+.nav-link {
+  color: black;
+}
+.title {
+  color: black;
+  font-family: 'Times New Roman', serif;
+  text-decoration: underline overline;
+  text-decoration-color: black;
+
+}
+.lead {
+  border: 5px;
+  border-style: groove;
+  border-color: black;
+  padding: 10px;
+  margin: 5px;
+  color: rgb(255, 255, 255);
+
+  font-weight: 600;
+  font-family: aclonica;
+  font-size: 20px;
+  animation: mymove 5s infinite;
+  background-color: rgb(0, 0, 0);
+  opacity: 80%;
+}
+@keyframes mymove {
+  50% {box-shadow: 10px 20px 30px  black;}
+}
+.extra {
+  width: 1200px;
+  height: 1200px;
+  overflow-y: scroll;
+}
+.model-text {
+  color: black;
+  font-family: cursive;
+
+  font-weight: 600;
+  font-size: 16px;
+}
+.header-title {
+  text-align: center;
+
+  color: #260c1a;
+  font-size: 50px;
+  animation: bmwmove 5s infinite;
+}
+.header-title-manufacturer {
+  margin: 20px;
+  text-align: center;
+
+  color: #260c1a;
+  font-size: 50px;
+  animation: bmwmove 3s infinite;
+}
+.table-head {
+  color: #260c1a;
+  font-family: cursive;
+  font-size: 21px;
+
+  font-weight: 600;
+}
+.w-100 {
+  width: 50% !important;
+  height: 25%;
+}
+.carousel img {
+
+  margin: auto;
+
+}
+.slide-label {
+  color: black;
+
+}
+.description-text {
+  color: black;
+
+  font-weight: 500;
+  font-family: sans-serif;
+}
+.card {
+  height: flex;
+  width: flex;
+  background-color:transparent;
+  border:none;
+}
+.card-img-top {
+  height: 200px;
+  width: 200px;
+}
+.col {
+  width: 300px;
+  height: 300px;
+}
+
+.imgButton{
+  text-align:center;
+}
+.dropdown-menu {
+  background-color: transparent;
+  border: none;
+}
+
+.serviceImg {
+  width: 100px;
+  height: 100px;
+  padding: 0px;
+  margin: -12px;
 }
