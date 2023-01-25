@@ -17,7 +17,10 @@ def get_automobiles():
     content = json.loads(response.content)
     for auto in content["autos"]:   #pointing at "autos", list 0 when it starts
         AutomobileVO.objects.update_or_create(
-            import_vin = auto["vin"],         #assigns vin = list 0, vin : #####
+            import_href = auto["href"],
+            defaults={                           #assigns vin = list 0, vin : #####
+                "vin": auto["vin"],
+            }
         )
 def poll():
     while True:
