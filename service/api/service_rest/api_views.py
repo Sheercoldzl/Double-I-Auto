@@ -1,39 +1,8 @@
-from django.shortcuts import render
-from .models import AutomobileVO, Technician, Appointment
-from common.json import ModelEncoder
 import json
 from django.http import JsonResponse
+from .models import AutomobileVO, Technician, Appointment
 from django.views.decorators.http import require_http_methods
-
-# Create your views here.
-class AutomobileVOEncoder(ModelEncoder):
-    model = AutomobileVO
-    properties = ["import_href", "vin", "id"]
-
-class TechnicianEncoder(ModelEncoder):
-    model = Technician
-    properties = [
-        "id",
-        "name",
-        "employee_number",
-    ]
-
-class AppoitmentEncoder(ModelEncoder):
-    model = Appointment
-    properties = [
-        "id",
-        "vin",
-        "customer_name",
-        "date",
-        "time",
-        "reason",
-        "vip",
-        "technician",
-        "is_finished"
-    ]
-    encoders = {
-        "technician": TechnicianEncoder(),
-    }
+from common.encoders import AutomobileVOEncoder, TechnicianEncoder, AppoitmentEncoder
 
 
 @require_http_methods(["GET", "POST"])
