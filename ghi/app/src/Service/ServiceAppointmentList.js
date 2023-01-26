@@ -16,7 +16,7 @@ function ServiceAppointmentList() {
   }, []);
 
   const handleCancel = async (id) => {
-    const url = `http://localhost:8080/api/appointments/${id}`;
+    const url = `http://localhost:8080/api/appointments/${id}/`;
     const fetchConfig = {
         method: "DELETE",
         headers: {
@@ -29,7 +29,7 @@ function ServiceAppointmentList() {
     }
 }
 const handleFinished = async (id) => {
-    const url = `http://localhost:8080/api/appointments/${id}`;
+    const url = `http://localhost:8080/api/appointments/${id}/`;
     const fetchConfig = {
         method: "PUT",
         body : JSON.stringify({is_finished: true}),
@@ -37,7 +37,9 @@ const handleFinished = async (id) => {
             'Content-Type': 'application/json',
         }
     }
+    console.log(fetchConfig)
     const response = await fetch(url, fetchConfig)
+
     if(response.ok){
         window.location.reload()
     }
