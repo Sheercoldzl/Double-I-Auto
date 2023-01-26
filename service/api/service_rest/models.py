@@ -27,3 +27,5 @@ class Appointment(models.Model):
 
     def __str__(self):
         return self.customer_name
+
+    is_finished = models.BooleanField(default = False)
