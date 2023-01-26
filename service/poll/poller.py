@@ -9,16 +9,16 @@ sys.path.append("")
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "service_project.settings")
 django.setup()
 
-# Import models from service_rest, here.
+# Import models from service_rest and updates or creates the objects every 10 seconds.
 from service_rest.models import AutomobileVO
 
 def get_automobiles():
     response = requests.get("http://inventory-api:8000/api/automobiles/")
     content = json.loads(response.content)
-    for auto in content["autos"]:   #pointing at "autos", list 0 when it starts
+    for auto in content["autos"]:
         AutomobileVO.objects.update_or_create(
             import_href = auto["href"],
-            defaults={                           #assigns vin = list 0, vin : #####
+            defaults={
                 "vin": auto["vin"],
             }
         )

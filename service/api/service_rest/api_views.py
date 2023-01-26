@@ -120,9 +120,7 @@ def api_list_appointments(request):
         try:
             vin = content["vin"]
             vin = AutomobileVO.objects.get(vin=vin)  # compares vin that was entered to the vin coming from the poller
-
             content["vip"]=True
-            print(vin)
         except AutomobileVO.DoesNotExist:
 
             response = JsonResponse(
@@ -131,8 +129,8 @@ def api_list_appointments(request):
             response.status_code = 400
             return response
         try:
-            id= content["technician"]
-            technician = Technician.objects.get(id=id)
+            input_id = content["technician"]
+            technician = Technician.objects.get(id=input_id)
             content["technician"] = technician          # Get the technician object and put it in the content dict
         except Technician.DoesNotExist:
             response = JsonResponse(
