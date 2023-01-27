@@ -23,6 +23,8 @@ function AppointmentForm() {
     useEffect(() => {
       fetchData();
     }, []);
+
+
     const handleSubmit = async (event) => {
       event.preventDefault();
       const url = 'http://localhost:8080/api/appointments/';
@@ -36,8 +38,6 @@ function AppointmentForm() {
       const response = await fetch(url, fetchConfig);
 
       if (response.ok) {
-        //The single formData object
-        //also allows for easier clearing of data
         setFormData({
             vin: '',
             customer_name: '',

@@ -47,7 +47,7 @@ function TechnicianForm() {
                 </div>
                 <div className="form-floating mb-3">
                     <input onChange={handleFormChange} value={formData.employee_number} placeholder="Employee Number" required type="text" name="employee_number" id="employee_number" className="form-control" />
-                    <label htmlFor="employee_number">Employee Number</label>
+                    <label htmlFor="employee_number">Employee ID</label>
                 </div>
               <button className="btn btn-primary">Create</button>
             </form>
