@@ -21,7 +21,7 @@ class SalesForm extends React.Component {
 
         const url = `http://localhost:8100/api/automobiles/${this.state.automobile}/`
         const fetchConfig = {
-            method: "DELETE",
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             }
@@ -58,7 +58,7 @@ class SalesForm extends React.Component {
                 price: '',
             });
         }
-        this.delete()
+
     }
     inputChange(event) {
         const value = event.target.value;
@@ -108,9 +108,9 @@ class SalesForm extends React.Component {
                             <div className="mb-3">
                                 <select onChange={this.inputChange} value={this.state.salesperson} required name="salesperson" className="form-select">
                                     <option value="">Choose a salesperson</option>
-                                    {this.state.salespersons.map(salesperson => {
+                                    {this.state.salespersons.map((salesperson, index) => {
                                         return (
-                                            <option key={salesperson.id} value={salesperson.employee_id}>
+                                            <option key={index} value={salesperson.employee_id}>
                                                 {salesperson.name}
                                             </option>
                                         );
@@ -120,9 +120,9 @@ class SalesForm extends React.Component {
                             <div className="mb-3">
                                 <select onChange={this.inputChange} value={this.state.customer} required name="customer" className="form-select">
                                     <option value="">Choose a customer</option>
-                                    {this.state.customers.map(customer => {
+                                    {this.state.customers.map((customer, index) => {
                                         return (
-                                            <option key={customer.id} value={customer.phone_number}>
+                                            <option key={index} value={customer.phone_number}>
                                                 {customer.phone_number}
                                             </option>
                                         );
