@@ -18,10 +18,13 @@ Explain your models and integration with the inventory
 microservice, here.
 
 ## Sales microservice
+We chose salespoerson, customer, salesrecord and automobile as our Value object.  The intentionb was for a salesrecord filtered through the sales person and we included a salesperson and technician form together as an employee list.
 
 We will needs to creat Salesrecord.
-step 1 creat Automobile-vin
-step 2 creat salesperson
-step 3 creat customer
-then add price.
+AutomobileForm creat Automobile-vin, 
+SalesPersonForm creat salesperson, 
+CustomerForm creat customer, 
+at the end, SalesForm submit then.
+
+
 
