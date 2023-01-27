@@ -26,9 +26,6 @@ function Nav() {
                 <a className="nav-link dropdown-toggle" href="@" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Models</a>
                 <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                   <li><NavLink className="dropdown-item bg-secondary"  aria-current="page" to="/models/list">All Models</NavLink></li>
-                  <li><NavLink className="dropdown-item bg-secondary"  aria-current="page" to="/models/Mercedes-Benz">Mercedes-Benz</NavLink></li>
-                  <li><NavLink className="dropdown-item bg-secondary"  aria-current="page" to="/models/BMW">BMW</NavLink></li>
-                  <li><NavLink className="dropdown-item bg-secondary"  aria-current="page" to="/models/Audi">Audi</NavLink></li>
                 </ul>
               </li>
               <li className="nav-item dropdown">
