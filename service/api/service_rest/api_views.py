@@ -2,7 +2,7 @@ import json
 from django.http import JsonResponse
 from .models import AutomobileVO, Technician, Appointment
 from django.views.decorators.http import require_http_methods
-from common.encoders import AutomobileVOEncoder, TechnicianEncoder, AppoitmentEncoder
+from common.encoders import TechnicianEncoder, AppoitmentEncoder
 
 
 @require_http_methods(["GET", "POST"])
@@ -24,7 +24,7 @@ def api_list_technicians(request):
             )
         except:
             response = JsonResponse(
-                {"message": "Could not create Technician"}
+                {"message": "Could not create Technician, id needs to be smaller tahn 3200"}
             )
             response.status_code = 400
             return response
@@ -41,7 +41,7 @@ def api_show_technician(request, pk):
                 safe=False
             )
         except Technician.DoesNotExist:
-            response = JsonResponse({"message": "Does not exist"})
+            response = JsonResponse({"message": f"Technician {pk} does not exist"})
             response.status_code = 404
             return response
     elif request.method == "DELETE":
@@ -54,12 +54,11 @@ def api_show_technician(request, pk):
                 safe=False,
             )
         except Technician.DoesNotExist:
-            return JsonResponse({"message": "Does not exist"})
-    else: # PUT
+            return JsonResponse({"message": "Technician does not exist"})
+    else:
         try:
             content = json.loads(request.body)
             technician = Technician.objects.get(id=pk)
-
             props = ["name", "employee_number"]
             for prop in props:
                 if prop in content:
@@ -71,7 +70,7 @@ def api_show_technician(request, pk):
                 safe=False,
             )
         except Technician.DoesNotExist:
-            response = JsonResponse({"message": "Does not exist"})
+            response = JsonResponse({"message": f"Technician {pk} does not exist"})
             response.status_code = 404
             return response
 
@@ -88,10 +87,9 @@ def api_list_appointments(request):
         content = json.loads(request.body)
         try:
             vin = content["vin"]
-            vin = AutomobileVO.objects.get(vin=vin)  # compares vin that was entered to the vin coming from the poller
+            vin = AutomobileVO.objects.get(vin=vin)
             content["vip"]=True
         except AutomobileVO.DoesNotExist:
-
             response = JsonResponse(
                 {"message": "Invalid Vin"}
             )
@@ -100,22 +98,19 @@ def api_list_appointments(request):
         try:
             input_id = content["technician"]
             technician = Technician.objects.get(id=input_id)
-            content["technician"] = technician          # Get the technician object and put it in the content dict
+            content["technician"] = technician
         except Technician.DoesNotExist:
             response = JsonResponse(
                 {"message": "Invalid technician"}
             )
             response.status_code = 400
             return response
-
-
         appointment = Appointment.objects.create(**content)
         return JsonResponse(
                 appointment,
                 encoder=AppoitmentEncoder,
                 safe=False,
             )
-
 
 
 @require_http_methods(["DELETE", "GET", "PUT"])
@@ -143,11 +138,10 @@ def api_show_appointment(request, pk):
             )
         except Appointment.DoesNotExist:
             return JsonResponse({"message": "Does not exist"})
-    else: # PUT
+    else:
         try:
             content = json.loads(request.body)
             appointment = Appointment.objects.get(id=pk)
-
             props = ["vin", "customer_name", "date","time","reason","technician", "is_finished"]
             for prop in props:
                 if prop in content:

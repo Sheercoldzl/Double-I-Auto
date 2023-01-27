@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from "react";
 
-function ServiceAppointmentList() {
-  const [appointments, setAppointments] = useState([]);
 
-  const fetchAppointmentsData = async () => {
+function ServiceAppointmentList() {
+    const [appointments, setAppointments] = useState([]);
+
+    const fetchAppointmentsData = async () => {
     const url = "http://localhost:8080/api/appointments/";
     const response = await fetch(url);
     const data = await response.json();
     console.log(data);
     setAppointments(data.appointments);
-  };
+    };
 
-  useEffect(() => {
-    fetchAppointmentsData();
-  }, []);
+    useEffect(() => {
+        fetchAppointmentsData();
+    }, []);
 
-  const handleCancel = async (id) => {
+    const handleCancel = async (id) => {
     const url = `http://localhost:8080/api/appointments/${id}/`;
     const fetchConfig = {
         method: "DELETE",
@@ -27,26 +28,26 @@ function ServiceAppointmentList() {
     if(response.ok){
         window.location.reload()
     }
-}
-const handleFinished = async (id) => {
-    const url = `http://localhost:8080/api/appointments/${id}/`;
-    const fetchConfig = {
-        method: "PUT",
-        body : JSON.stringify({is_finished: true}),
-        headers: {
-            'Content-Type': 'application/json',
+    }
+    const handleFinished = async (id) => {
+        const url = `http://localhost:8080/api/appointments/${id}/`;
+        const fetchConfig = {
+            method: "PUT",
+            body : JSON.stringify({is_finished: true}),
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }
+        console.log(fetchConfig)
+        const response = await fetch(url, fetchConfig)
+
+        if(response.ok){
+            setAppointments(appointments.filter(appointment => appointment.id !== id));
         }
     }
-    console.log(fetchConfig)
-    const response = await fetch(url, fetchConfig)
-
-    if(response.ok){
-        window.location.reload()
-    }
-}
 
 
-  return(
+    return(
     <table className="table table-striped">
         <thead>
             <tr>
@@ -78,6 +79,6 @@ const handleFinished = async (id) => {
         })}
         </tbody>
     </table>
-);
+    );
 }
 export default ServiceAppointmentList

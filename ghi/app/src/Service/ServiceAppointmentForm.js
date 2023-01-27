@@ -1,15 +1,15 @@
 import React, {useState, useEffect } from 'react';
 
+
 function AppointmentForm() {
     const [technicians, setTechnicians] = useState([])
-
-
     const [formData, setFormData] = useState({
         vin: '',
         customer_name: '',
         date: '',
         time: '',
         technician: '',
+        reason: '',
     })
     const fetchData = async () => {
       const url = 'http://localhost:8080/api/technicians/';
@@ -44,6 +44,7 @@ function AppointmentForm() {
             date: '',
             time: '',
             technician: '',
+            reason: '',
         });
       }
     }
@@ -96,7 +97,7 @@ function AppointmentForm() {
             </form>
           </div>
         </div>
-       </div>
+      </div>
     );
   }
   export default AppointmentForm;

@@ -1,11 +1,14 @@
-from service_rest.models import AutomobileVO, Technician, Appointment
 from .json import ModelEncoder
-from django.views.decorators.http import require_http_methods
+from service_rest.models import AutomobileVO, Technician, Appointment
 
 
 class AutomobileVOEncoder(ModelEncoder):
     model = AutomobileVO
-    properties = ["import_href", "vin", "id"]
+    properties = [
+        "import_href",
+        "vin",
+        "id"
+        ]
 
 
 class TechnicianEncoder(ModelEncoder):
