@@ -179,6 +179,7 @@ def api_salesrecords(request):
             response.status_code = 400
             return response
 
+
 @require_http_methods(["GET", "DELETE", "PUT"])
 def api_salesrecord(request, pk):
     if request.method == "GET":
