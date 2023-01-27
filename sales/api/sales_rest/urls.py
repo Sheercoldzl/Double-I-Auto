@@ -10,6 +10,7 @@ from .views import (
     api_salesrecords,
 )
 
+
 urlpatterns = [
     path("sales/", api_salesrecords, name="api_sales_records"),
     path("sales/<int:pk>/", api_salesrecord, name="api_sales_record"),
