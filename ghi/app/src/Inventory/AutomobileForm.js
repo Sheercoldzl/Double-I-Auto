@@ -13,45 +13,45 @@ function AutomobileForm() {
     const fetchData = async () => {
         const url = "http://localhost:8100/api/models/";
         const response = await fetch(url);
-        if (response.ok) {
-          const data = await response.json();
-          setModel(data.models);
+            if (response.ok) {
+            const data = await response.json();
+            setModel(data.models);
         }
-      }
+    }
 
-      useEffect(() => {
+    useEffect(() => {
         fetchData();
-      }, []);
+    }, []);
 
-      const handleSubmit = async (event) => {
-        event.preventDefault();
-        const url = 'http://localhost:8100/api/automobiles/';
-        const fetchConfig = {
-          method: "POST",
-          body: JSON.stringify(formData),
-          headers: {
+    const handleSubmit = async (event) => {
+    event.preventDefault();
+    const url = 'http://localhost:8100/api/automobiles/';
+    const fetchConfig = {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
             'Content-Type': 'application/json',
-          },
+        },
         };
-        const response = await fetch(url, fetchConfig);
+    const response = await fetch(url, fetchConfig);
 
-        if (response.ok) {
-            setFormData({
-                color: '',
-                year: '',
-                vin: '',
-                model_id: '',
-            });
-          }
-        }
-        const handleFormChange = (e) => {
-          const value = e.target.value;
-          const inputName = e.target.name;
-          setFormData({
-            ...formData,
-            [inputName]: value
-          });
-        }
+    if (response.ok) {
+        setFormData({
+            color: '',
+            year: '',
+            vin: '',
+            model_id: '',
+        });
+    }
+    }
+    const handleFormChange = (e) => {
+        const value = e.target.value;
+        const inputName = e.target.name;
+        setFormData({
+        ...formData,
+        [inputName]: value
+        });
+    }
 
         return (
             <div className="row">

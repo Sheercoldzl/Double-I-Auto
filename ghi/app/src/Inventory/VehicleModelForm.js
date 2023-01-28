@@ -12,25 +12,25 @@ function VehicleModelForm() {
     const fetchData = async () => {
         const url = "http://localhost:8100/api/manufacturers/";
         const response = await fetch(url);
-        if (response.ok) {
-          const data = await response.json();
-          setManufacturers(data.manufacturers);
-        }
-      }
+            if (response.ok) {
+            const data = await response.json();
+            setManufacturers(data.manufacturers);
+            }
+    }
 
-      useEffect(() => {
+    useEffect(() => {
         fetchData();
-      }, []);
+    }, []);
 
-      const handleSubmit = async (event) => {
-        event.preventDefault();
-        const url = 'http://localhost:8100/api/models/';
-        const fetchConfig = {
-          method: "POST",
-          body: JSON.stringify(formData),
-          headers: {
+    const handleSubmit = async (event) => {
+    event.preventDefault();
+    const url = 'http://localhost:8100/api/models/';
+    const fetchConfig = {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
             'Content-Type': 'application/json',
-          },
+        },
         };
         const response = await fetch(url, fetchConfig);
         if (response.ok) {
@@ -39,15 +39,15 @@ function VehicleModelForm() {
                 manufacturer_id: '',
                 picture_url: '',
             });
-          }
         }
-        const handleFormChange = (e) => {
-          const value = e.target.value;
-          const inputName = e.target.name;
-          setFormData({
-            ...formData,
-            [inputName]: value
-          });
+        }
+    const handleFormChange = (e) => {
+        const value = e.target.value;
+        const inputName = e.target.name;
+        setFormData({
+        ...formData,
+        [inputName]: value
+        });
         }
 
         return (
