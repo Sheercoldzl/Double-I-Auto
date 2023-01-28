@@ -6,6 +6,11 @@ Team:
 * Person 2 - Ian LI - Sales
 
 ## Design
+Our design encompassed a user friendly interface that was easy to read and easy to utilize, endeavoring to fully take advantage of the strengths of the microservice model.
+
+The starter application comes with a fully-functioning scaffold of microservices, a front-end application, and a database. The bold text services in the following list are the ones that you and your teammate will implement:
+Inventory API: provides Manufacturer, Model, and Automobile RESTful API endpoints but needs a front-end
+Database: the PostgreSQL database that will hold the data of all of the microservices
 
 ## Service microservice
 
@@ -21,6 +26,13 @@ Appointment Model- a vin was made, this time it didn't have to be unique becuase
 The vin and href properties were used for my AutomobileVO that were updated every 10 seconds thanks to the poller that was built, this allowed me to compare the VIN number in the inventory microservice to the Appointment model in my Service microservice. This allowed me to change the value of vip in my appointment model from the default of false to true once it was confirmed that the vin was in the inventory.
 
 ## Sales microservice
+We chose salespoerson, customer, salesrecord and automobile as our Value object.  The intentionb was for a salesrecord filtered through the sales person and we included a salesperson and technician form together as an employee list.
 
-Explain your models and integration with the inventory
-microservice, here.
+We will needs to creat Salesrecord.
+AutomobileForm creat Automobile-vin, 
+SalesPersonForm creat salesperson, 
+CustomerForm creat customer, 
+at the end, SalesForm submit then.
+
+
+

@@ -1,10 +1,10 @@
 function MainPage() {
   return (
     <div className="px-4 py-5 my-5 text-center">
-      <h1 className="title display-5 fw-bold">Double I&&I Auto</h1>
+      <h1 className="title display-5 fw-bold">Double I Auto</h1>
       <div className="col-lg-6 mx-auto">
         <p className="lead mb-4">
-        Have a nice day.
+        Please contact carmax if you really need it.
         </p>
       </div>
       <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
@@ -15,24 +15,24 @@ function MainPage() {
   </div>
   <div className="carousel-inner">
     <div className="carousel-item active">
-      <img src="https://thumbs.dreamstime.com/b/car-sale-benz-dealership-showroom-64985773.jpg" className="d-block w-100" alt="..."/>
+      <img src="https://img2.carmax.com/assets/23394508/hero.jpg?width=800&height=450" className="d-block w-100" alt="..."/>
       <div className="carousel-caption d-none d-md-block">
-        <h5 className="slide-label">On sale</h5>
-        <p className="description-text">Need new picture</p>
+        <h5 className="slide-label">$14,599</h5>
+        <p className="description-text">2014 Dodge Journey American Value</p>
       </div>
     </div>
     <div className="carousel-item">
-      <img src="https://thumbs.dreamstime.com/b/car-sale-benz-dealership-showroom-64985773.jpg" className="d-block w-100" alt="..."/>
+      <img src="https://img2.carmax.com/assets/23696116/hero.jpg?width=800&height=450" className="d-block w-100" alt="..."/>
       <div className="carousel-caption d-none d-md-block">
-        <h5 className="slide-label">On sale</h5>
-        <p className="description-text">Need new picture</p>
+        <h5 className="slide-label">$23,998</h5>
+        <p className="description-text">2013 Land Rover Range Rover Evoque Pure Plus</p>
       </div>
     </div>
     <div className="carousel-item">
-      <img src="https://thumbs.dreamstime.com/b/car-sale-benz-dealership-showroom-64985773.jpg" className="d-block w-100" alt="..."/>
+      <img src="https://img2.carmax.com/assets/23669840/hero.jpg?width=800&height=450" className="d-block w-100" alt="..."/>
       <div className="carousel-caption d-none d-md-block">
-        <h5 className="slide-label">On sale</h5>
-        <p className="description-text">Need new picture</p>
+        <h5 className="slide-label">$21,998</h5>
+        <p className="description-text">2013 Mercedes-Benz GLK350</p>
       </div>
     </div>
   </div>

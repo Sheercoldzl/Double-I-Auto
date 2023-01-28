@@ -8,7 +8,6 @@ import SalesList from './Sales/SalesList';
 import SalesPersonForm from './Sales/SalesPersonForm';
 import CustomerForm from './Sales/CustomerForm';
 import SalesHistory from './Sales/SalesHistory';
-import BMWList from './Inventory/BMWList';
 import ManufacturerList from './Inventory/ManufacturerList';
 import AutomobileList from './Inventory/AutomobileList';
 import ManufacturerForm from './Inventory/ManufacturerForm';
@@ -16,7 +15,6 @@ import VehicleModelForm from './Inventory/VehicleModelForm';
 import AutomobileForm from './Inventory/AutomobileForm';
 import ServiceAppointmentList from './Service/ServiceAppointmentList';
 import ServiceHistory from './Service/ServiceHistory';
-import MercedesList from './Inventory/MercedesList';
 import VehicleModelsList from './Inventory/VehicleModelsList';
 import EmployeesList from './Employees';
 
@@ -40,8 +38,6 @@ function App() {
           </Route>
           <Route path="models/">
             <Route path="list/" element={<VehicleModelsList />} />
-            <Route path="BMW/" element={<BMWList />} />
-            <Route path="Mercedes-Benz/" element={<MercedesList />} />
             <Route path="create/" element={<VehicleModelForm />} />
           </Route>
           <Route path="manufacturers/">
