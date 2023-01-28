@@ -89,12 +89,8 @@ def api_list_appointments(request):
             vin = content["vin"]
             vin = AutomobileVO.objects.get(vin=vin)
             content["vip"]=True
-        except AutomobileVO.DoesNotExist:
-            response = JsonResponse(
-                {"message": "Invalid Vin"}
-            )
-            response.status_code = 400
-            return response
+        except:
+            pass
         try:
             input_id = content["technician"]
             technician = Technician.objects.get(id=input_id)
