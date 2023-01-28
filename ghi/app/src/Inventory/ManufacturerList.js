@@ -29,9 +29,6 @@ class ManufacturerList extends React.Component {
                                 return(
                                         <div className="col" key={manufacturer.id}>
                                             <div className="card">
-                                            <div className="imgButton">
-                                                <img alt="" className="card-img-top" src={manufacturer.picture_url}></img>
-                                            </div>
                                                 <div className="card-body">
                                                 <div className="imgButton">
                                                     <NavLink to={`/models/${manufacturer.name}`} className="btn btn-secondary">{manufacturer.name}</NavLink>
