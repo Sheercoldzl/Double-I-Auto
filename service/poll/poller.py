@@ -4,13 +4,13 @@ import sys
 import time
 import json
 import requests
-from service_rest.models import AutomobileVO
 
 
 sys.path.append("")
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "service_project.settings")
 django.setup()
 
+from service_rest.models import AutomobileVO
 
 def get_automobiles():
     response = requests.get("http://inventory-api:8000/api/automobiles/")
